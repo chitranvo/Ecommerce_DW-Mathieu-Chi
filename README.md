@@ -43,7 +43,6 @@ L’**entrepôt de données (OLAP)** permet de :
 | ----------------------------- | ----------------------------------------- |
 | **PhpMyAdmin / XAMPP / WAMP** | Gestion de la base MySQL                  |
 | **Power BI**                  | Visualisation et tableaux de bord         |
-| **GitHub**                    | Documentation et versionnage              |
 | **SQL / ETL / ELT**           | Intégration et transformation des données |
 
 ---
