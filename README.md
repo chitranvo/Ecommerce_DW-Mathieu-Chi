@@ -1,15 +1,15 @@
 # Ecommerce_DW-Mathieu-Chi
 
-# 🧠 Introduction aux Entrepôts de Données
+# Introduction aux Entrepôts de Données
 
-## 🔐 Informations générales
+## Informations générales
 
 * **Outils utilisés :** PhpMyAdmin, Power BI, XAMPP/WAMP, DBT, Git
 * **Méthodologie :** P.A.C.E — *Planifier, Analyser, Construire, Exécuter*
 
 ---
 
-## 📘 1. Pourquoi un entrepôt de données ?
+## 1. Pourquoi un entrepôt de données ?
 
 Les bases **opérationnelles (OLTP)** gèrent les transactions quotidiennes (ventes, commandes, stocks, factures).
 Elles sont optimisées pour la rapidité d’exécution, mais **ne suffisent pas pour l’analyse stratégique**.
@@ -21,11 +21,11 @@ L’**entrepôt de données (OLAP)** permet de :
 * Nettoyer et homogénéiser les informations
 * Analyser les tendances à travers des tableaux de bord (BI)
 
-👉 En résumé : **OLTP = gestion quotidienne**, **OLAP = décision stratégique**
+En résumé : **OLTP = gestion quotidienne**, **OLAP = décision stratégique**
 
 ---
 
-## ⚖️ 2. Différence entre Transactions et Analyses
+## 2. Différence entre Transactions et Analyses
 
 | **Aspect**        | **OLTP (Transactions)** | **OLAP (Analyses)**                 |
 | ----------------- | ----------------------- | ----------------------------------- |
@@ -37,7 +37,7 @@ L’**entrepôt de données (OLAP)** permet de :
 
 ---
 
-## 🎯 3. Point de vue marketing
+## 3. Point de vue marketing
 
 Si j’étais **directeur marketing**, j’aurais besoin de :
 
@@ -51,7 +51,7 @@ Ces **KPIs** aident à évaluer la performance commerciale et à ajuster la stra
 
 ---
 
-## 🧩 4. Concepts et définitions
+## 4. Concepts et définitions
 
 | **Terme**                  | **Définition**                                    |
 | -------------------------- | ------------------------------------------------- |
@@ -63,7 +63,7 @@ Ces **KPIs** aident à évaluer la performance commerciale et à ajuster la stra
 
 ---
 
-## 🏗️ 5. Modèles et architectures
+## 5. Modèles et architectures
 
 ### Approches :
 
@@ -79,7 +79,7 @@ Ces **KPIs** aident à évaluer la performance commerciale et à ajuster la stra
 
 ---
 
-## ☁️ 6. Infrastructures et formats
+## 6. Infrastructures et formats
 
 | **Type**            | **Exemple**                   | **Avantage principal**      |
 | ------------------- | ----------------------------- | --------------------------- |
@@ -92,7 +92,7 @@ Ces **KPIs** aident à évaluer la performance commerciale et à ajuster la stra
 
 ---
 
-## 🔄 7. Intégration et transformation des données (ETL / ELT)
+## 7. Intégration et transformation des données (ETL / ELT)
 
 ### 🔹 **ETL (Extract – Transform – Load)**
 
@@ -100,27 +100,27 @@ Ces **KPIs** aident à évaluer la performance commerciale et à ajuster la stra
 2. Transformation (nettoyage, normalisation)
 3. Chargement dans l’entrepôt
 
-🧰 Exemple : Talend, Informatica, SSIS
-💡 Adapté aux systèmes traditionnels.
+Exemple : Talend, Informatica, SSIS
+Adapté aux systèmes traditionnels.
 
-### 🔹 **ELT (Extract – Load – Transform)**
+### **ELT (Extract – Load – Transform)**
 
 1. Extraction des données sources
 2. Chargement brut dans le DW
 3. Transformation dans le moteur du DW (SQL, Spark, BigQuery...)
 
-⚡ Adapté aux environnements **Cloud / Big Data**
-🧰 Exemple : Snowflake, BigQuery, Redshift
+Adapté aux environnements **Cloud / Big Data**
+Exemple : Snowflake, BigQuery, Redshift
 
 ---
 
-## 🔁 8. Pipeline de données
+## 8. Pipeline de données
 
 Un **pipeline** correspond au **chemin de transformation des données**, depuis leur extraction jusqu’à leur visualisation finale (ETL/ELT → DW → Power BI).
 
 ---
 
-## 🧮 9. DBT et gestion des données
+## 9. DBT et gestion des données
 
 ### Pourquoi séparer données brutes et transformées ?
 
@@ -135,14 +135,14 @@ Un **pipeline** correspond au **chemin de transformation des données**, depuis 
 
 ---
 
-## 🔐 10. Sécurité par rôles
+## 10. Sécurité par rôles
 
 * Attribution de **droits d’accès** selon le rôle utilisateur
 * Protection des données sensibles (ex : clients, ventes)
 
 ---
 
-## 📊 11. Indicateurs (KPIs)
+## 11. Indicateurs (KPIs)
 
 * **CA (Chiffre d’affaires)**
 * **Top produits**
@@ -154,7 +154,7 @@ Un **pipeline** correspond au **chemin de transformation des données**, depuis 
 
 ---
 
-## 💻 12. Environnement de développement
+## 12. Environnement de développement
 
 * **Base :** PostgreSQL
 * **Outils :** PhpMyAdmin, Power BI
@@ -164,7 +164,7 @@ Un **pipeline** correspond au **chemin de transformation des données**, depuis 
 
 ---
 
-## 🧾 13. Présentation finale
+## 13. Présentation finale
 
 * **README Git** (documentation complète du projet)
 * **Résumé exécutif** (synthèse des résultats et KPIs clés)
@@ -172,7 +172,7 @@ Un **pipeline** correspond au **chemin de transformation des données**, depuis 
 
 ---
 
-## 🚀 Méthodologie P.A.C.E
+## Méthodologie P.A.C.E
 
 | **Étape**          | **Description**                                       |
 | ------------------ | ----------------------------------------------------- |
