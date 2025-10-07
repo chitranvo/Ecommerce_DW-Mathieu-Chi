@@ -154,24 +154,6 @@ Un **pipeline** correspond au **chemin de transformation des données**, depuis 
 
 ---
 
-## 12. Environnement de développement
-
-* **Base :** PostgreSQL
-* **Outils :** PhpMyAdmin, Power BI
-* **Modélisation :** Schéma en étoile
-* **Sécurité :** Rôles utilisateurs
-* **Versionning :** GitHub
-
----
-
-## 13. Présentation finale
-
-* **README Git** (documentation complète du projet)
-* **Résumé exécutif** (synthèse des résultats et KPIs clés)
-* **Tableau de bord Power BI** (analyse visuelle des ventes et clients)
-
----
-
 ## Méthodologie P.A.C.E
 
 | **Étape**          | **Description**                                       |
