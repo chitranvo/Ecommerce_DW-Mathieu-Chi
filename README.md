@@ -163,34 +163,3 @@ GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO manager;
 | **C – Construire** | Créer tables, KPIs, modèles Power BI | Schéma en étoile                  |
 | **E – Exécuter**   | Déployer et analyser les résultats   | Dashboard Power BI                |
 
----
-
-## Structure du dépôt Git
-
-```
-  shopsmart-datawarehouse
-│
-├── 📁 data_raw/
-│   ├── customers.csv
-│   ├── products.csv
-│   ├── orders.csv
-│   └── order_items.csv
-│
-├── 📁 sql_scripts/
-│   ├── create_tables.sql
-│   ├── transformations.sql
-│   ├── kpis_queries.sql
-│
-├── 📁 powerbi/
-│   └── dashboard_sales.pbix
-│
-├── 📁 docs/
-│   ├── schema_star.png
-│   └── dataflow.png
-│
-└── 📄 README.md
-```
-
-
-Souhaites-tu que je te crée maintenant les **fichiers SQL complets (`create_tables.sql`, `transformations.sql`, `kpis_queries.sql`)** que tu pourras **ajouter directement à ton Git** ?
-Je peux les écrire pour toi ligne par ligne avec des exemples concrets.
