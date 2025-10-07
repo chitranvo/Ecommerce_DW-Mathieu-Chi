@@ -1,162 +1,196 @@
-# Introduction aux Entrepôts de Données
+# ShopSmart Data Warehouse Project
 
-## Informations générales
+## Introduction aux entrepôts de données
 
-* **Outils utilisés :** PhpMyAdmin, Power BI, XAMPP/WAMP, DBT, Git
-* **Méthodologie :** P.A.C.E — *Planifier, Analyser, Construire, Exécuter*
+### Pourquoi une entreprise aurait besoin d’un entrepôt de données ?
 
----
-
-## 1. Pourquoi un entrepôt de données ?
-
-Les bases **opérationnelles (OLTP)** gèrent les transactions quotidiennes (ventes, commandes, stocks, factures).
-Elles sont optimisées pour la rapidité d’exécution, mais **ne suffisent pas pour l’analyse stratégique**.
-
+Les **bases opérationnelles (OLTP)** gèrent les opérations quotidiennes (ventes, commandes, stocks).
+Elles ne sont **pas conçues pour l’analyse stratégique**.
 L’**entrepôt de données (OLAP)** permet de :
 
-* Centraliser les données issues de plusieurs sources (CRM, ERP, e-commerce, etc.)
-* Historiser les données sur plusieurs années
-* Nettoyer et homogénéiser les informations
-* Analyser les tendances à travers des tableaux de bord (BI)
+* Centraliser les données provenant de plusieurs sources (CRM, ERP, site e-commerce).
+* Historiser les informations pour le suivi dans le temps.
+* Améliorer la qualité et la cohérence des données.
+* Permettre des **analyses complexes et rapides** (tableaux de bord, BI).
 
-En résumé : **OLTP = gestion quotidienne**, **OLAP = décision stratégique**
-
----
-
-## 2. Différence entre Transactions et Analyses
-
-| **Aspect**        | **OLTP (Transactions)** | **OLAP (Analyses)**                 |
-| ----------------- | ----------------------- | ----------------------------------- |
-| Objectif          | Gérer les opérations    | Prendre des décisions               |
-| Type d’opérations | Petites, fréquentes     | Requêtes complexes                  |
-| Données           | Actuelles, détaillées   | Historiques, agrégées               |
-| Structure         | Tables normalisées      | Schéma étoile / flocon              |
-| Exemple           | Commande Amazon         | Tableau de bord ventes 2024 vs 2025 |
+**→ OLTP = opérations | OLAP = analyses.**
 
 ---
 
-## 3. Point de vue marketing
+## Comparaison OLTP vs OLAP
 
-Si j’étais **directeur marketing**, j’aurais besoin de :
-
-* **CA mensuel**
-* **Taux de réachat / fidélisation**
-* **Panier moyen**
-* **Top produits / catégories**
-* **Meilleures localisations clients (Best_loc)**
-
-Ces **KPIs** aident à évaluer la performance commerciale et à ajuster la stratégie.
+| Critère   | OLTP                         | OLAP                               |
+| --------- | ---------------------------- | ---------------------------------- |
+| Objectif  | Enregistrer les transactions | Analyser les données               |
+| Données   | Détail, en temps réel        | Historique, consolidé              |
+| Structure | Tables normalisées           | Schéma en étoile ou flocon         |
+| Requêtes  | Courtes, fréquentes          | Lentes, agrégées                   |
+| Exemple   | Système de commandes Amazon  | Tableau de bord de ventes Power BI |
 
 ---
 
-## 4. Concepts et définitions
+## Concepts clés
 
-| **Terme**                  | **Définition**                                    |
-| -------------------------- | ------------------------------------------------- |
-| **DW (Data Warehouse)**    | Base de données dédiée à l’analyse                |
-| **OLTP**                   | Système transactionnel (exécution des opérations) |
-| **OLAP**                   | Système analytique (aide à la décision)           |
-| **KPI**                    | Indicateur clé de performance                     |
-| **Schéma étoile / flocon** | Structure logique d’un entrepôt de données        |
+* **Entrepôt de données (DW)** : Base centrale pour les analyses.
+* **KPI (Indicateur clé de performance)** : Mesure pour suivre les objectifs (CA, panier moyen, fidélisation…).
+* **Modèle en étoile / flocon** : Organisation des tables (faits + dimensions).
 
 ---
 
-## 5. Modèles et architectures
+## Environnement technique
 
-### Approches :
-
-* **Inmon (Top-down)** : entrepôt central → data marts
-* **Kimball (Bottom-up)** : data marts → entrepôt global
-* **Data Vault** : approche flexible, centrée sur l’historisation
-
-### Notions importantes :
-
-* **Grain** : niveau de détail des données d’une table de faits
-* **Clé technique** : identifiant stable, indépendant de la clé métier
-* **Dimension conforme** : dimension partagée entre plusieurs data marts
+| Outil                         | Rôle                                      |
+| ----------------------------- | ----------------------------------------- |
+| **PhpMyAdmin / XAMPP / WAMP** | Gestion de la base MySQL                  |
+| **Power BI**                  | Visualisation et tableaux de bord         |
+| **GitHub**                    | Documentation et versionnage              |
+| **SQL / ETL / ELT**           | Intégration et transformation des données |
 
 ---
 
-## 6. Infrastructures et formats
+## Architecture : Approches
 
-| **Type**            | **Exemple**                   | **Avantage principal**      |
-| ------------------- | ----------------------------- | --------------------------- |
-| DW on-premise       | Oracle, SQL Server            | Contrôle interne            |
-| DW cloud            | Snowflake, BigQuery, Redshift | Scalabilité, flexibilité    |
-| Format CSV          | Texte brut, simple            | Facile à manipuler          |
-| Format Parquet/ORC  | Format binaire compressé      | Efficace pour le Big Data   |
-| Stockage colonnaire | Par colonne                   | Lecture rapide et sélective |
-| Partitionnement     | Par date, région...           | Performance accrue          |
+| Approche                | Description                           |
+| ----------------------- | ------------------------------------- |
+| **Inmon (top-down)**    | Entrepôt central puis Data Marts      |
+| **Kimball (bottom-up)** | Data Marts intégrés dans un DW global |
+| **Data Vault**          | Flexible, orientée historisation      |
 
 ---
 
-## 7. Intégration et transformation des données (ETL / ELT)
+## Stockage et Cloud
 
-### 🔹 **ETL (Extract – Transform – Load)**
-
-1. Extraction des sources (BDD, fichiers, API)
-2. Transformation (nettoyage, normalisation)
-3. Chargement dans l’entrepôt
-
-Exemple : Talend, Informatica, SSIS
-Adapté aux systèmes traditionnels.
-
-### **ELT (Extract – Load – Transform)**
-
-1. Extraction des données sources
-2. Chargement brut dans le DW
-3. Transformation dans le moteur du DW (SQL, Spark, BigQuery...)
-
-Adapté aux environnements **Cloud / Big Data**
-Exemple : Snowflake, BigQuery, Redshift
+| Type               | Description                                 |
+| ------------------ | ------------------------------------------- |
+| **DW On-premise**  | Géré localement (Oracle, SQL Server)        |
+| **DW Cloud**       | Externalisé (BigQuery, Snowflake, Redshift) |
+| **Format Parquet** | Colonnaire, compressé, optimisé Big Data    |
 
 ---
 
-## 8. Pipeline de données
+## ETL vs ELT
 
-Un **pipeline** correspond au **chemin de transformation des données**, depuis leur extraction jusqu’à leur visualisation finale (ETL/ELT → DW → Power BI).
+| Étape         | ETL                                | ELT                             |
+| ------------- | ---------------------------------- | ------------------------------- |
+| **Extract**   | Extraction des données             | Extraction des données          |
+| **Transform** | Transformation avant le chargement | Transformation après chargement |
+| **Load**      | Chargement dans DW                 | Chargement brut dans DW         |
+| **Exemples**  | Talend, SSIS                       | Snowflake, BigQuery             |
 
----
-
-## 9. DBT et gestion des données
-
-### Pourquoi séparer données brutes et transformées ?
-
-* Pour assurer **traçabilité, qualité et reproductibilité** des transformations.
-
-### DBT apporte :
-
-* Gestion versionnée des modèles SQL
-* Tests automatiques
-* Documentation intégrée
-* Automatisation des flux de transformation
+**Pipeline de données = chemin complet de la donnée (source → analyse).**
 
 ---
 
-## 10. Sécurité par rôles
+## Exemple SQL – Création de tables
 
-* Attribution de **droits d’accès** selon le rôle utilisateur
-* Protection des données sensibles (ex : clients, ventes)
+```sql
+CREATE TABLE customers (
+    customer_id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(150),
+    country VARCHAR(50),
+    signup_date DATE
+);
+
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    product_name VARCHAR(100),
+    category VARCHAR(50),
+    price DECIMAL(10,2)
+);
+```
 
 ---
 
-## 11. Indicateurs (KPIs)
+## Exemple SQL – Transformation (ETL)
 
-* **CA (Chiffre d’affaires)**
-* **Top produits**
-* **Panier moyen**
-* **Top catégories**
-* **Taux de fidélisation**
-* **Best location**
-* **Inscription moyenne**
+```sql
+-- Jointure pour créer une table de faits complète
+CREATE TABLE fact_orders AS
+SELECT 
+    o.order_id,
+    c.customer_id,
+    p.product_id,
+    oi.quantity,
+    oi.unit_price,
+    (oi.quantity * oi.unit_price) AS total_amount,
+    o.order_date
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+JOIN order_items oi ON o.order_id = oi.order_id
+JOIN products p ON oi.product_id = p.product_id;
+```
+
+---
+
+## KPIs principaux
+
+| Indicateur               | Formule                                      | Objectif                      |
+| ------------------------ | -------------------------------------------- | ----------------------------- |
+| **CA mensuel**           | `SUM(total_amount)`                          | Mesurer les ventes            |
+| **Panier moyen**         | `SUM(total_amount)/COUNT(DISTINCT order_id)` | Évaluer la valeur moyenne     |
+| **Taux de fidélisation** | `(Clients récurrents / Clients totaux)`      | Identifier la fidélité        |
+| **Top produits**         | `ORDER BY SUM(quantity)`                     | Trouver les meilleures ventes |
+
+---
+
+## Sécurité par rôles
+
+```sql
+CREATE ROLE analyst;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO analyst;
+
+CREATE ROLE manager;
+GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO manager;
+```
+
+---
+
+## Power BI – Tableaux de bord
+
+* **Page 1 :** Vue globale (CA, panier moyen, top produits)
+* **Page 2 :** Fidélisation client et taux de réachat
+* **Page 3 :** Analyse par période (évolution mensuelle)
 
 ---
 
 ## Méthodologie P.A.C.E
 
-| **Étape**          | **Description**                                       |
-| ------------------ | ----------------------------------------------------- |
-| **P – Planifier**  | Identifier les besoins et les sources de données      |
-| **A – Analyser**   | Nettoyer, transformer et modéliser les données        |
-| **C – Construire** | Mettre en place le Data Warehouse et les KPIs         |
-| **E – Exécuter**   | Créer les visualisations et les rapports décisionnels |
+| Étape              | Objectif                             | Exemple                           |
+| ------------------ | ------------------------------------ | --------------------------------- |
+| **P – Planifier**  | Identifier les besoins métiers       | Ex : besoin d’un suivi des ventes |
+| **A – Analyser**   | Nettoyer et structurer les données   | SQL, ETL                          |
+| **C – Construire** | Créer tables, KPIs, modèles Power BI | Schéma en étoile                  |
+| **E – Exécuter**   | Déployer et analyser les résultats   | Dashboard Power BI                |
+
+---
+
+## Structure du dépôt Git
+
+```
+  shopsmart-datawarehouse
+│
+├── 📁 data_raw/
+│   ├── customers.csv
+│   ├── products.csv
+│   ├── orders.csv
+│   └── order_items.csv
+│
+├── 📁 sql_scripts/
+│   ├── create_tables.sql
+│   ├── transformations.sql
+│   ├── kpis_queries.sql
+│
+├── 📁 powerbi/
+│   └── dashboard_sales.pbix
+│
+├── 📁 docs/
+│   ├── schema_star.png
+│   └── dataflow.png
+│
+└── 📄 README.md
+```
+
+
+Souhaites-tu que je te crée maintenant les **fichiers SQL complets (`create_tables.sql`, `transformations.sql`, `kpis_queries.sql`)** que tu pourras **ajouter directement à ton Git** ?
+Je peux les écrire pour toi ligne par ligne avec des exemples concrets.
