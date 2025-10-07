@@ -1,5 +1,3 @@
-# Ecommerce_DW-Mathieu-Chi
-
 # Introduction aux Entrepôts de Données
 
 ## Informations générales
