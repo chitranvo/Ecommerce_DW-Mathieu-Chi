@@ -180,7 +180,3 @@ Un **pipeline** correspond au **chemin de transformation des données**, depuis 
 | **A – Analyser**   | Nettoyer, transformer et modéliser les données        |
 | **C – Construire** | Mettre en place le Data Warehouse et les KPIs         |
 | **E – Exécuter**   | Créer les visualisations et les rapports décisionnels |
-
----
-
-Souhaites-tu que je te fasse aussi la **version courte du README** (résumé exécutif, 8–10 lignes) pour la fin de ton dépôt GitHub ?
